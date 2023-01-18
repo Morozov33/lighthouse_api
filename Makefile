@@ -1,5 +1,7 @@
+host ?= 127.0.0.1
+port ?= 9999
 start: #start uvicorn server for app
-	poetry run uvicorn lighthouse.main:app --reload
+	poetry run uvicorn lighthouse.main:app --reload --host $(host) --port $(port)
 
 lint: #linter for code
 	poetry run flake8 lighthouse tests
